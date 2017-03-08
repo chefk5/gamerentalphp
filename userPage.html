@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>K Rentals</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+    	.well {
+ 		  background-color: rgba(245, 245, 245, 0.4);
+}
+
+
+    </style>
+
+    <script>
+function getVote(int) {
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("poll").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("GET","poll_vote.php?vote="+int,true);
+  xmlhttp.send();
+}
+</script>
+</head>
+<body background="xbox1.jpg">
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse " id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Friends</a></li>
+                        <li><a href="#">Photos</a></li>
+                        <li><a href="#">Settings</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="well col-lg-3" >
+	<H2>Rent a Game</H2>
+	<form method="POST" action="">
+		<input class="container-fluid" type="text" name="gameNameRent" placeholder="Game name"><br><br>
+		<input class="container-fluid" type="date" name="dateRent" placeholder="dd/mm/yyyy"><br><br>
+	</form>
+</div>
+
+<div id="poll">
+<h3>Do you like PHP and AJAX so far?</h3>
+<form>
+Yes:
+<input type="radio" name="vote" value="0" onclick="getVote(this.value)">
+<br>No:
+<input type="radio" name="vote" value="1" onclick="getVote(this.value)">
+</form>
+</div>
+
+
+<div class="well">
+<?php include 'userTextbox.php';?>
+	
+</div>
+
+
+
+
+</body>
+</html>
+

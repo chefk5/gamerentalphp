@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+     .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+}
+  </style>
+</head>
+<body >
+<video playsinline autoplay muted loop poster="Browsing.jpg" id="bgvid">
+      <source src="Browsing.mp4" type="video/mp4">
+</video>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Friends</a></li>
+                            <li><a href="#">Photos</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        <ul class="dropdown-menu">
+                            <li><a href="#">Admin</a></li>
+                            <li><a href="#">User</a></li>
+        </ul>
+
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<center>
+  <div class="well col-lg-4 col-lg-offset-4" style="margin-top: 100px;">
+         <form>
+  <div class="form-group">
+    <p>Admin login:</p>
+    <label for="email">User name:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox">I am a human!</label>
+  </div>
+  <button type="submit" class="btn btn-default">Sign in</button>
+  <button type="submit" class="btn btn-default btn-info">Sign up</button>
+</form> 
+  </div>
+</center>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>K Rentals</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse " id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Friends</a></li>
+                        <li><a href="#">Photos</a></li>
+                        <li><a href="#">Settings</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<center>
+    <form method="POST" action="">
+        <div class="well  col-lg-3" style="margin-top: 5%;">
+            <h2>ADD GAMES:</h2>
+            <input class="container-fluid" type="text" name="gameName" placeholder="Game name"><br><br>
+            <input class="container-fluid" type="text" name="gameGenre" placeholder="Game genre"><br><br>
+            <button class="btn-default" type="submit" style="margin-left: 7px;">Add</button>
+            <!-- <button class="btn-primary" type="submit">Update</button>
+            <button class="btn-danger" type="submit">Delete</button>-->
+        </div>
+</center>
+
+
+<center>
+    <div class="well  col-lg-3" style="margin-top: 5%; margin-left:15px; ">
+        <h2>Delete GAMES:</h2>
+
+        <?php
+            $mysql_link=mysqli_connect("localhost","root","");
+            mysqli_select_db($mysql_link,"project1");
+            $result = mysqli_query($mysql_link, "SELECT gameName FROM games");
+            echo "<select name='gameslist'>";
+        while($row1 = mysqli_fetch_array($result))
+
+        echo "<option value='".$row1['gameName']."'>".$row1['gameName']."</option>";
+
+        echo "</select>";
+
+
+        ?>
+        </select>
+        <input class="container-fluid" type="text" name="gameGenreD" placeholder="Game genre"><br><br>
+        <button class="btn-default" type="submit"  style="margin-left: 7px;">Delete</button>
+        <!-- <button class="btn-primary" type="submit">Update</button>
+        <button class="btn-danger" type="submit">Delete</button>-->
+    </div>
+</center>
+</form>
+
+
+</body>
+</html>
+
